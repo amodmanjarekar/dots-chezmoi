@@ -1,0 +1,91 @@
+// -*- mode: json -*-
+
+{
+	"layer": "top",
+	"position": "top",
+
+	"modules-left": [
+		"hyprland/workspaces",
+		"mpris",
+	],
+	"modules-center": [
+		"systemd-failed-units",
+		"clock",
+		"user",
+		"privacy"
+	],
+	"modules-right": [
+		"pulseaudio",
+		"temperature",
+		"battery",
+		"network",
+		"group/power"
+	],
+
+	"mpris": {
+		"player-icons": {
+			"firefox": "o"
+		}
+	},
+
+	"clock": {
+
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume:2}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "MUTE",
+		"format-icons": {
+			"headphones": "",
+			"default": [
+				"",
+				""
+			]
+		},
+		"scroll-step": 5,
+		"on-click": "pamixer -t",
+		"on-click-right": "pavucontrol"
+	},
+	"battery": {
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	
+	"group/power": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 500,
+			"transition-left-to-right": false,
+		},
+		"modules": [
+			"custom/sleep",
+			// "custom/lock",
+			// "custom/reboot",
+			"custom/shutdown"
+		]
+	},
+
+	"custom/sleep": {
+		"format": "󰒲",
+		"tooltip": false,
+		"on-click": "systemctl sleep"
+	},
+
+	"custom/shutdown": {
+		"format": "⏻",
+		"tooltip": false,
+		"on-click": "shutdown now"
+	}
+}
